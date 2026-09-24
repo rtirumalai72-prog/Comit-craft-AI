@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Comic Preview - ComicCraft</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; padding: 40px; text-align: center; }
+        h1 { color: #1e3a8a; margin-bottom: 10px; }
+        .card { background: white; max-width: 600px; margin: 30px auto; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: left; }
+        .card h3 { color: #2563eb; margin-top: 0; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; }
+        img { width: 100%; max-width: 500px; border-radius: 8px; display: block; margin: 15px auto; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .desc { font-style: italic; color: #475569; margin: 10px 0; background: #f8fafc; padding: 10px; border-left: 4px solid #cbd5e1; border-radius: 4px; }
+        .dialogue { font-size: 16px; color: #1e293b; line-height: 1.6; background: #eff6ff; padding: 12px; border-radius: 6px; border: 1px dashed #bfdbfe; }
+        .btn-download { background: #10b981; color: white; text-decoration: none; padding: 14px 28px; font-weight: bold; font-size: 16px; border-radius: 6px; display: inline-block; margin-top: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: background 0.2s; }
+        .btn-download:hover { background: #059669; }
+    </style>
+</head>
+<body>
+    <h1>📖 Your AI Generated Comic Book</h1>
+    <p>Review your sequential comic book below before downloading the final document.</p>
+    
+    {% for panel in layout %}
+    <div class="card">
+        <h3>Panel {{ panel.panel }}: {{ panel.title }}</h3>
+        {% if panel.image_path %}
+        <img src="/{{ panel.image_path }}">
+        {% endif %}
+        <p class="desc"><strong>Scene Context:</strong> {{ panel.scene_description }}</p>
+        <p class="dialogue"><strong>Script & Dialogue:</strong><br>{{ panel.text | safe }}</p>
+    </div>
+    {% endfor %}
+    
+    <a href="/export-success?pdf_path={{ pdf_path }}" class="btn-download">📥 Export & Download Your Comic as PDF</a>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Your Comic - ComicCraft</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; padding: 40px; text-align: center; }
+        .container { max-width: 600px; background: white; padding: 30px; margin: 0 auto; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: left; }
+        h2 { text-align: center; color: #1e3a8a; margin-top: 0; }
+        label { font-weight: bold; display: block; margin-top: 15px; color: #334155; }
+        input, textarea, select { width: 100%; padding: 10px; margin-top: 5px; border: 2px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; font-size: 15px; }
+        textarea { height: 100px; resize: none; }
+        button { background: #0256d6; color: white; border: none; padding: 14px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; margin-top: 25px; width: 100%; transition: background 0.2s; }
+        button:hover { background: #0141a3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>📖 Create Your Comic</h2>
+        <form action="/generate" method="post">
+            <label>Story Prompt:</label>
+            <textarea name="prompt" required placeholder="A brave fox exploring an enchanted forest..."></textarea>
+            
+            <label>Main Character Name:</label>
+            <input type="text" name="character_name" required placeholder="Example: Leo">
+            
+            <label>Setting:</label>
+            <select name="setting">
+                <option value="Forest">Forest</option>
+                <option value="School">School</option>
+                <option value="Space">Space</option>
+                <option value="City">City</option>
+            </select>
+            
+            <label>Story Tone:</label>
+            <select name="tone">
+                <option value="Dramatic">Dramatic</option>
+                <option value="Funny">Funny</option>
+                <option value="Poetic">Poetic</option>
+            </select>
+            
+            <label>Art Style:</label>
+            <select name="style">
+                <option value="Realistic">Realistic</option>
+                <option value="Anime">Anime</option>
+                <option value="Pixel Art">Pixel Art</option>
+                <option value="Comic Book">Comic Book</option>
+            </select>
+            
+            <button type="submit">Generate Comic Book</button>
+        </form>
+    </div>
+</body>
+</html>
